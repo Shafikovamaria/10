@@ -46,15 +46,11 @@ int main ()
 
 
 
-    int ab=0, min, dlina=0;
-    i=-1;
-    do
+    int ab[10], abn=0, min=21, dlina=0;
+    for(int i = 0; i < 10; i++)
     {
-        i++;
-        min=strlen(str24[i]);
-        ab = i;
+        ab[i]=-1;
     }
-    while(strcmp(str24[a], str24[i]) ==0);
     printf("-> ");
     fprintf(fp,"-> ");
     i=0;
@@ -66,14 +62,19 @@ int main ()
         {
             dlina = strlen(str24[i]);
 
-            if(dlina < min)
+            if(dlina <= min)
             {
                 min=dlina;
-                ab=i;
+                ab[abn]=i;
+                abn+=1;
             }
-        }}
-    printf("%s", str24[ab]);
-    fprintf ( fp, "%s", str24[ab] );
+        }
+    }
+    for(i = 0; i < abn; i++)
+    {
+        printf("%s ", str24[ab[i]]);
+        fprintf(fp, "%s ", str24[ab[i]]);
+    }
     fclose ( fp );
     return 0;
 }
